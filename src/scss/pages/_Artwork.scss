@@ -1,0 +1,55 @@
+@use '../abstracts/variables' as *;
+
+.Artwork,
+.MainArtwork {
+  .artwork__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  img,
+  table {
+    width: 90%;
+    margin: 0 auto;
+    border: 3px solid map-get($Colors, gold);
+    border-radius: 0.3rem;
+    @media (min-width: 768px) {
+      width: 70%;
+    }
+  }
+
+  table {
+    table-layout: auto;
+    margin: 2rem auto;
+  }
+
+  tr {
+    display: flex;
+    flex-direction: column;
+    margin: 4rem 0.5rem;
+    text-align: center;
+    border-bottom: 1px solid hsl(51, 30%, 50%);
+    padding-bottom: 4rem;
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  td:nth-child(1) {
+    margin-bottom: 1rem;
+    h3 {
+      font-size: 1.5rem;
+    }
+  }
+
+  td:nth-child(2) {
+    font-size: 1.2rem;
+    line-height: 1.7rem;
+    a {
+      color: map-get($Colors, gold);
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

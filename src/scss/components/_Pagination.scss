@@ -1,0 +1,38 @@
+@use '../abstracts/variables' as *;
+
+.Pagination {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  margin: 2rem auto;
+  @media (min-width: 992px) {
+    width: 80%;
+  }
+
+  a {
+    color: white;
+    font-weight: bold;
+    background-color: map-get($Colors, primary);
+    text-align: center;
+    width: calc((100% / 4) - 4px);
+    padding: 0.3rem 0;
+    margin: 2px;
+    border: 2px solid transparent;
+    transition: 0.5s;
+    a.material-icons {
+      /* color: white; */
+      max-height: 33.6px;
+    }
+    &:hover {
+      color: map-get($Colors, gold);
+      background-color: map-get($Colors, darkGray);
+      border: 2px solid map-get($Colors, gold);
+    }
+    @media (min-width: 360px) {
+      width: calc((100% / 8) - 4px);
+    }
+    @media (min-width: 768px) {
+      width: calc((100% / 16) - 4px);
+    }
+  }
+}

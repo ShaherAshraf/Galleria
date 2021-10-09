@@ -1,0 +1,114 @@
+{
+  "likes": [
+    {
+      "artwork_id": 146727,
+      "artwork_link": "/MainArtwork/146727",
+      "title": "Egyptian Family (Sketch for \"The Battle of the Pyramids\")",
+      "artist": "Antoine-Jean Gros (French, 1771-1835)",
+      "artist_link": "/mainArtist/1706/antoine-jean-gros-(french,-1771-1835)",
+      "artist_id": 1706,
+      "image_url": "https://openaccess-cdn.clevelandart.org/1972.17.2/1972.17.2_web.jpg",
+      "isLiked": false,
+      "id": 2
+    },
+    {
+      "artwork_id": 173641,
+      "artwork_link": "/MainArtwork/173641",
+      "title": "Rest",
+      "artist": "William Adolphe Bouguereau (French, 1825-1905)",
+      "artist_link": "/mainArtist/1571/william-adolphe-bouguereau-(french,-1825-1905)",
+      "artist_id": 1571,
+      "image_url": "https://openaccess-cdn.clevelandart.org/1915.722/1915.722_web.jpg",
+      "isLiked": false,
+      "id": 3
+    },
+    {
+      "artwork_id": 130391,
+      "artwork_link": "/MainArtwork/130391",
+      "title": "Spring Flowers",
+      "artist": "Claude Monet (French, 1840-1926)",
+      "artist_link": "/mainArtist/1844/claude-monet-(french,-1840-1926)",
+      "artist_id": 1844,
+      "image_url": "https://openaccess-cdn.clevelandart.org/1953.155/1953.155_web.jpg",
+      "isLiked": false,
+      "id": 4
+    },
+    {
+      "artwork_id": 121188,
+      "artwork_link": "/MainArtwork/121188",
+      "title": "Romaine Lacaux",
+      "artist": "Pierre-Auguste Renoir (French, 1841-1919)",
+      "artist_link": "/mainArtist/1765/pierre-auguste-renoir-(french,-1841-1919)",
+      "artist_id": 1765,
+      "image_url": "https://openaccess-cdn.clevelandart.org/1942.1065/1942.1065_web.jpg",
+      "isLiked": false,
+      "id": 6
+    },
+    {
+      "artwork_id": 150083,
+      "artwork_link": "/MainArtwork/150083",
+      "title": "Seaside (July: Specimen of a Portrait)",
+      "artist": "James Tissot (French, 1836-1902)",
+      "artist_link": "/mainArtist/1824/james-tissot-(french,-1836-1902)",
+      "artist_id": 1824,
+      "image_url": "https://openaccess-cdn.clevelandart.org/1980.288/1980.288_web.jpg",
+      "isLiked": false,
+      "id": 8
+    },
+    {
+      "artwork_id": 160289,
+      "artwork_link": "/MainArtwork/160289",
+      "title": "Portrait of Lisa Colt Curtis",
+      "artist": "John Singer Sargent (American, 1856-1925)",
+      "artist_link": "/mainArtist/2559/john-singer-sargent-(american,-1856-1925)",
+      "artist_id": 2559,
+      "image_url": "https://openaccess-cdn.clevelandart.org/1998.168/1998.168_web.jpg",
+      "isLiked": false,
+      "id": 9
+    },
+    {
+      "artwork_id": 155860,
+      "artwork_link": "/MainArtwork/155860",
+      "title": "The Young Eastern Woman",
+      "artist": "Friedrich Amerling (Austrian, 1803-1887)",
+      "artist_link": "/mainArtist/2879/friedrich-amerling-(austrian,-1803-1887)",
+      "artist_id": 2879,
+      "image_url": "https://openaccess-cdn.clevelandart.org/1991.163/1991.163_web.jpg",
+      "isLiked": false,
+      "id": 10
+    },
+    {
+      "artwork_id": 135336,
+      "artwork_link": "/MainArtwork/135336",
+      "title": "Berthe Morisot",
+      "artist": "Edouard Manet (French, 1832-1883)",
+      "artist_link": "/mainArtist/1796/edouard-manet-(french,-1832-1883)",
+      "artist_id": 1796,
+      "image_url": "https://openaccess-cdn.clevelandart.org/1958.34/1958.34_web.jpg",
+      "isLiked": false,
+      "id": 11
+    },
+    {
+      "artwork_id": 130163,
+      "artwork_link": "/MainArtwork/130163",
+      "title": "Young Woman with a Turban",
+      "artist": "Jacques-Louis David (French, 1748-1825)",
+      "artist_link": "/mainArtist/1643/jacques-louis-david-(french,-1748-1825)",
+      "artist_id": 1643,
+      "image_url": "https://openaccess-cdn.clevelandart.org/1952.542/1952.542_web.jpg",
+      "isLiked": false,
+      "id": 12
+    },
+    {
+      "artwork_id": 24687,
+      "artwork_link": "/artwork/24687",
+      "title": "Yellow Hickory Leaves with Daisy",
+      "artist": "Georgia O'Keeffe\nAmerican, 1887–1986",
+      "artist_link": "/artist/36062/georgia-o'keeffe",
+      "artist_id": 36062,
+      "image_url": "https://www.artic.edu/iiif/2/b3688c8c-06f2-2a35-56bb-19de1a05344e/full/843,/0/default.jpg",
+      "isLiked": false,
+      "id": 13
+    }
+  ]
+}

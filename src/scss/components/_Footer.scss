@@ -1,0 +1,27 @@
+@use '../abstracts/placeholders' as *;
+@use '../abstracts/variables' as *;
+@use './base' as *;
+
+.Footer {
+  color: map-get($Colors, gray);
+  background-color: map-get($Colors, primary);
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+
+  .container {
+    width: 80%;
+    padding: 0.3rem 0;
+    display: flex;
+    flex-flow: row wrap;
+    @media (max-width: 300px) {
+      width: 100%;
+    }
+    @media (min-width: 576px) {
+      width: 60%;
+    }
+
+    @extend %IconsOptions;
+  }
+}

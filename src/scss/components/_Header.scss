@@ -1,0 +1,61 @@
+@use '../abstracts/placeholders' as *;
+@use '../abstracts/variables' as *;
+@use './base' as *;
+
+.Header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  color: map-get($Colors, darkGray);
+  background-color: map-get($Colors, primary);
+
+  .menu-icon {
+    cursor: pointer;
+    color: map-get($Colors, gray);
+  }
+
+  .container {
+    @extend %flex-between;
+    padding: 0.8rem 0;
+    .NavArrows {
+      width: 8%;
+      display: flex;
+      justify-content: space-between;
+      position: fixed;
+      left: 18rem;
+      span {
+        cursor: pointer;
+        padding: 0.3rem;
+        color: map-get($Colors, gray);
+        border-radius: 50%;
+        border: 1px solid transparent;
+        transition: 0.5s;
+        &:hover {
+          color: white;
+          border: 1px solid white;
+        }
+        &:nth-child(1) {
+          display: none;
+        }
+      }
+    }
+
+    .SearchBox {
+      position: fixed;
+      right: 30rem;
+      width: 25%;
+      .search-form {
+        width: 100%;
+        .search-txtField {
+          padding: 0.6rem 1rem;
+          font-size: 1rem;
+        }
+        .search-submit {
+          padding-right: 2.3rem;
+        }
+      }
+    }
+  }
+}

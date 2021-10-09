@@ -1,0 +1,130 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/placeholders' as *;
+@use '../components/base' as *;
+
+.page-container {
+  width: 80%;
+  margin: 5rem auto;
+  @media (min-width: 1200px) {
+    width: calc(100% - (250px + 5rem));
+    margin: 5rem 2.5rem 5rem auto;
+  }
+}
+
+.page-header {
+  @extend %flex-between;
+  margin-bottom: 1rem;
+
+  .DisplayOptions {
+    width: 13%;
+    display: flex;
+    justify-content: space-between;
+    span {
+      cursor: pointer;
+      padding: 0.3rem;
+      color: map-get($Colors, gray);
+      background-color: map-get($Colors, primary);
+      border-radius: 50%;
+      border: 1px solid transparent;
+      transition: 0.5s;
+      &:hover {
+        color: white;
+        border: 1px solid white;
+      }
+    }
+  }
+}
+
+.cards-container {
+  columns: 1;
+  @media (min-width: 576px) {
+    columns: 2;
+  }
+  @media (min-width: 992px) {
+    columns: 3;
+  }
+  @media (min-width: 1200px) {
+    columns: 4;
+  }
+}
+
+.card,
+.MainCard,
+.LikedCard {
+  break-inside: avoid;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 1rem;
+  border: 0.2rem solid transparent;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: 0.5s;
+  &:hover {
+    border: 0.2rem solid map-get($Colors, gold);
+    .card__img {
+      transform: scale(1.1);
+    }
+    .card__content {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding-top: 5rem;
+    }
+    .card__info {
+      opacity: 1;
+    }
+  }
+
+  &__img {
+    transition: 0.5s;
+  }
+
+  &__content {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__info {
+    width: 100%;
+    padding: 1rem;
+    position: absolute;
+    bottom: -2rem;
+    font-family: 'DM Serif Text', serif;
+    letter-spacing: 0.1rem;
+    opacity: 0;
+    transition: 0.5s;
+  }
+
+  &__title {
+    color: map-get($Colors, gold);
+    max-width: 85%;
+  }
+
+  &__artist {
+    color: white;
+    max-width: 85%;
+  }
+
+  &__like {
+    cursor: pointer;
+    color: map-get($Colors, gold);
+    position: relative;
+    /* left: 184px; */
+    right: -92%;
+    bottom: 1.3rem;
+  }
+}
+
+:root {
+  --num: 1;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-243px * var(--num) * 1.6));
+  }
+}

@@ -1,0 +1,81 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/placeholders' as *;
+
+.NotFound {
+  .page-container {
+    height: calc(100vh - 10rem);
+    @extend %flex-center;
+  }
+
+  .error {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    img {
+      width: 30%;
+      margin: 1rem auto;
+    }
+    .content {
+      width: 60%;
+      text-align: center;
+    }
+    h1 {
+      font-size: 5rem;
+      margin: 0 0 1rem 0;
+      animation: colorizeText 1s infinite;
+    }
+    h3 {
+      font-size: 2.5rem;
+      margin: 1rem;
+      animation: colorizeText 1s infinite reverse;
+    }
+    a {
+      margin: 1rem;
+      color: white;
+      font-size: 1rem;
+      text-transform: uppercase;
+      display: inline-block;
+      border-bottom: 2px dotted transparent;
+      padding-bottom: 0.5rem;
+      &:hover {
+        font-weight: bold;
+        color: map-get($Colors, gold);
+        border-bottom: 2px dotted map-get($Colors, gold);
+      }
+    }
+    @media (max-width: 700px) {
+      height: 100%;
+      flex-direction: column;
+      img {
+        width: 50%;
+      }
+      .content {
+        word-break: break-word;
+        width: 100%;
+        h1 {
+          font-size: 2.5rem;
+        }
+        h3 {
+          font-size: 1.25rem;
+        }
+      }
+    }
+    @media (max-width: 576px) {
+      img {
+        width: 60%;
+      }
+    }
+  }
+}
+
+@keyframes colorizeText {
+  0% {
+    color: white;
+  }
+  50% {
+    color: map-get($Colors, gold);
+  }
+  100% {
+    color: white;
+  }
+}

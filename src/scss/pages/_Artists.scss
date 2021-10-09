@@ -1,0 +1,51 @@
+@use '../abstracts/variables' as *;
+
+.Artists {
+  .artists-container {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    justify-content: space-between;
+    @media (min-width: 576px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    @media (min-width: 992px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    @media (min-width: 1200px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .artist {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    margin-bottom: 2rem;
+    margin-top: 0;
+    &__img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 3px solid white;
+      transition: 0.3s;
+    }
+    &__title {
+      color: white;
+      font-family: 'DM Serif Text', serif;
+      transition: 0.3s;
+    }
+    &__name {
+      margin: 1rem 0 0.2rem 0;
+      letter-spacing: 0.1rem;
+    }
+    &:hover {
+      .artist__img {
+        border-color: map-get($Colors, gold);
+      }
+      .artist__title {
+        color: map-get($Colors, gold);
+      }
+    }
+  }
+}

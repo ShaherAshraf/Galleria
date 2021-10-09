@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/MainArtwork.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/MainArtwork.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useParams } from 'react-router';
+import { Link } from 'react-router-dom';
+import useFetch from '../hooks/useFetch';
+import Skeleton from '../layouts/Skeleton';
+
+/**
+ * @component
+ * @name MainArtwork
+ * @description A detailed page about each artwork in the Home page.
+ */
+const MainArtwork = () => {
+  const { id } = useParams();
+  const { isLoading, data: artwork } = useFetch(`https://openaccess-api.clevelandart.org/api/artworks/${id}`);
+
+  return (
+    &lt;div className='MainArtwork'>
+      &lt;div className='page-container'>
+        {isLoading &amp;&amp; &lt;Skeleton type={'spinner'} />}
+        {artwork &amp;&amp; artwork.data.images &amp;&amp; (
+          &lt;div className='artwork__info'>
+            &lt;img src={artwork.data.images.web.url} alt='' />
+            &lt;div className='artwork__details'>
+              &lt;table>
+                &lt;tbody>
+                  &lt;tr>
+                    &lt;td>
+                      &lt;h3>Title&lt;/h3>
+                    &lt;/td>
+                    &lt;td>{`${artwork.data.title}, ${artwork.data.creation_date}`}&lt;/td>
+                  &lt;/tr>
+                  &lt;tr>
+                    &lt;td>
+                      &lt;h3>Artist&lt;/h3>
+                    &lt;/td>
+                    &lt;td>
+                      &lt;Link to={`/mainArtist/${artwork.data.creators[0].id}/${artwork.data.creators[0].description.replace(/ /g, '-').toLowerCase()}`}>{artwork.data.creators[0].description}&lt;/Link>
+                    &lt;/td>
+                  &lt;/tr>
+                  &lt;tr>
+                    &lt;td>
+                      &lt;h3>Technique&lt;/h3>
+                    &lt;/td>
+                    &lt;td>{artwork.data.technique}&lt;/td>
+                  &lt;/tr>
+                  &lt;tr>
+                    &lt;td>
+                      &lt;h3>Measurements&lt;/h3>
+                    &lt;/td>
+                    &lt;td>{artwork.data.measurements}&lt;/td>
+                  &lt;/tr>
+                  &lt;tr>
+                    &lt;td>
+                      &lt;h3>Creditline&lt;/h3>
+                    &lt;/td>
+                    &lt;td>{artwork.data.creditline}&lt;/td>
+                  &lt;/tr>
+                  &lt;tr>
+                    &lt;td>
+                      &lt;h3>Location&lt;/h3>
+                    &lt;/td>
+                    &lt;td>{artwork.data.current_location}&lt;/td>
+                  &lt;/tr>
+                  &lt;tr>
+                    &lt;td>
+                      &lt;h3>Fun fact&lt;/h3>
+                    &lt;/td>
+                    &lt;td>{artwork.data.fun_fact}&lt;/td>
+                  &lt;/tr>
+                  &lt;tr>
+                    &lt;td>
+                      &lt;h3>Description&lt;/h3>
+                    &lt;/td>
+                    &lt;td>{artwork.data.wall_description}&lt;/td>
+                  &lt;/tr>
+                &lt;/tbody>
+              &lt;/table>
+            &lt;/div>
+          &lt;/div>
+        )}
+      &lt;/div>
+    &lt;/div>
+  );
+};
+
+export default MainArtwork;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#activatePageBtn">activatePageBtn</a></li><li><a href="global.html#ArtistInfo">ArtistInfo</a></li><li><a href="global.html#Artwork">Artwork</a></li><li><a href="global.html#Card">Card</a></li><li><a href="global.html#generatePagesLinks">generatePagesLinks</a></li><li><a href="global.html#handleDisplayOptions">handleDisplayOptions</a></li><li><a href="global.html#handleLike">handleLike</a></li><li><a href="global.html#handleNext">handleNext</a></li><li><a href="global.html#handlePagerShifts">handlePagerShifts</a></li><li><a href="global.html#handlePrev">handlePrev</a></li><li><a href="global.html#MainArtist">MainArtist</a></li><li><a href="global.html#MainArtwork">MainArtwork</a></li><li><a href="global.html#MainCard">MainCard</a></li><li><a href="global.html#Pagination">Pagination</a></li><li><a href="global.html#resetPagerBoundaries">resetPagerBoundaries</a></li><li><a href="global.html#scrollToTop">scrollToTop</a></li><li><a href="global.html#Skeleton">Skeleton</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sun Oct 10 2021 00:00:33 GMT+0200 (توقيت شرق أوروبا الرسمي)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

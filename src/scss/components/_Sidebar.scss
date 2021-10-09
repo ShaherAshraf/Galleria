@@ -1,0 +1,74 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/placeholders' as *;
+
+.Sidebar {
+  background-color: map-get($Colors, darkGray);
+  @extend %flex-center;
+  height: 100vh;
+
+  .link-item {
+    color: map-get($Colors, gray);
+    display: flex;
+    align-items: center;
+    margin: 2rem 0;
+    transition: 0.5s;
+    span {
+      font-size: 2.5rem;
+    }
+    span + span {
+      margin-left: 0.5rem;
+      font-size: 1.8rem;
+      font-weight: bold;
+    }
+    &:hover {
+      color: white;
+    }
+  }
+
+  .is-active {
+    color: white;
+  }
+
+  @media (min-width: 992px) {
+    height: 40px;
+    background-color: transparent;
+    .sidebar__nav-links {
+      display: flex;
+      align-items: center;
+    }
+    .link-item {
+      margin: 0 0.7rem;
+      span {
+        font-size: 1.4rem;
+      }
+      span + span {
+        margin-left: 0.2rem;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  @media (min-width: 1200px) {
+    background-color: map-get($Colors, primary);
+    width: 250px;
+    height: 100vh;
+    margin-top: -5rem;
+    position: fixed;
+    left: 0;
+    z-index: 1;
+    .sidebar__nav-links {
+      display: block;
+    }
+    .link-item {
+      margin: 1.5rem 0;
+      span {
+        font-size: 1.8rem;
+      }
+      span + span {
+        margin-left: 0.5rem;
+        font-size: 1.2rem;
+        font-weight: bold;
+      }
+    }
+  }
+}

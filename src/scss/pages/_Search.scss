@@ -1,0 +1,88 @@
+@use '../abstracts/variables' as *;
+@use '../abstracts/placeholders' as *;
+
+.Header .resultsBox {
+  position: absolute;
+  top: 4rem;
+  right: 30rem;
+  width: 25%;
+  background: map-get($Colors, darkGray);
+}
+
+.Search {
+  .SearchBox {
+    @extend %flex-center;
+    height: 60vh;
+  }
+}
+
+.search-form {
+  width: 100%;
+  @extend %flex-between;
+  background-color: rgb(255, 255, 255);
+  border-radius: 30px;
+  &:hover {
+    box-shadow: 0 0.125rem 0.25rem rgba(map-get($Colors, gold), 0.75);
+  }
+  @media (min-width: 768px) {
+    width: 80%;
+  }
+  @media (min-width: 992px) {
+    width: 60%;
+  }
+
+  .search-txtField {
+    border-radius: 30px;
+    padding: 1rem;
+    width: 95%;
+    border: 0;
+    font-size: 0.9rem;
+    color: map-get($Colors, gray);
+    &:focus {
+      outline: 0;
+    }
+    @media (min-width: 992px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  .search-submit {
+    width: 5%;
+    border: 0;
+    background: none;
+    cursor: pointer;
+    padding-right: 2.5rem;
+    color: map-get($Colors, gray);
+  }
+}
+
+.resultsBox {
+  width: 100%;
+  margin: 0 auto;
+  text-align: center;
+  list-style: none;
+  border: 3px solid map-get($Colors, gold);
+  border-radius: 20px;
+  overflow: hidden;
+  @media (min-width: 768px) {
+    width: 80%;
+  }
+  @media (min-width: 992px) {
+    width: 60%;
+  }
+
+  .result {
+    a {
+      display: block;
+      width: 100%;
+      color: white;
+      padding: 1rem;
+      border-bottom: 1px solid map-get($Colors, gray);
+      transition: 0.3s;
+      &:hover {
+        color: map-get($Colors, gold);
+        background: map-get($Colors, gray);
+      }
+    }
+  }
+}

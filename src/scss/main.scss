@@ -1,0 +1,5 @@
+@import 'base/base', 'base/typography';
+
+@import 'components/Header', 'components/Sidebar', 'components/Footer', 'components/Pagination';
+
+@import 'pages/base', 'pages/Artwork', 'pages/Artists', 'pages/ArtistInfo', 'pages/Articles', 'pages/Article', 'pages/Search', 'pages/NotFound';

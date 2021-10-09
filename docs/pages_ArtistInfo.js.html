@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: pages/ArtistInfo.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: pages/ArtistInfo.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { useState, useEffect, useRef } from 'react';
+import { useParams } from 'react-router';
+import axios from 'axios';
+import Card from '../layouts/Card';
+import Skeleton from '../layouts/Skeleton';
+
+/**
+ * @component
+ * @name ArtistInfo
+ * @description A detailed page about each artist of the Artists page.
+ */
+const ArtistInfo = () => {
+  const { id } = useParams();
+  const [artistInfo, setArtistInfo] = useState({});
+  const [artworkIds, setArtworkIds] = useState([]);
+  const allArtworks = [];
+  const [newArts, setNewArts] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [isPending, setIsPending] = useState(true);
+  const artistDesc = useRef(null);
+
+  useEffect(() => {
+    const source = axios.CancelToken.source();
+    const fetchArtist = async () => {
+      await axios
+        .get(`https://api.artic.edu/api/v1/artists/${id}`, { cancelToken: source.token })
+        .then((res) => {
+          setArtistInfo(res.data.data);
+          setArtworkIds(res.data.data.artwork_ids);
+          return res.data.data;
+        })
+        .then((res) => {
+          fetchArtworks(res);
+        })
+        .catch((err) => {
+          if (axios.isCancel(err)) {
+            console.log('ArtistsInfo => canceled request');
+          }
+          return err.message;
+        });
+    };
+
+    const source2 = axios.CancelToken.source();
+    const fetchArtworks = async (res) => {
+      for (let singleId of res.artwork_ids) {
+        await axios
+          .get(`https://api.artic.edu/api/v1/artworks/${singleId}`, { cancelToken: source2.token })
+          .then((res) => {
+            allArtworks.push(res.data.data);
+            setNewArts(allArtworks);
+            setIsLoading(false);
+          })
+          .catch((err) => {
+            if (axios.isCancel(err)) {
+              console.log('ArtistInfo => canceled request');
+            }
+            return err.message;
+          });
+      }
+      setIsPending(false);
+    };
+    fetchArtist();
+    return () => {
+      source.cancel();
+      source2.cancel();
+    };
+  }, []);
+
+  const artworksCards = newArts.map((item) => {
+    if (item &amp;&amp; item.image_id != null) {
+      return &lt;Card key={item.image_id} artwork_id={item.id} title={item.title} artist={item.artist_display} image_id={item.image_id} artist_id={item.artist_id} artist_title={item.artist_title} />;
+    }
+  });
+
+  if (artistDesc.current) {
+    artistDesc.current.innerHTML = artistInfo.description;
+  }
+
+  return (
+    &lt;div className='ArtistInfo'>
+      &lt;div className='page-container'>
+        &lt;header className='page-header'>
+          &lt;h1 className='artist__name'>
+            {artistInfo.title == undefined ? &lt;Skeleton type={`title`} /> : artistInfo.title + ' '}
+            {!artistInfo.birth_date &amp;&amp; !artistInfo.death_date ? null : (
+              &lt;span>
+                ({artistInfo.birth_date ? artistInfo.birth_date : `~`} - {artistInfo.death_date ? artistInfo.death_date : `~`})
+              &lt;/span>
+            )}
+          &lt;/h1>
+        &lt;/header>
+        &lt;div className='artist__bio'>
+          {artistInfo.description &amp;&amp; (
+            &lt;>
+              &lt;h2>Description&lt;/h2>
+              &lt;div ref={artistDesc} className='artist__description'>&lt;/div>
+            &lt;/>
+          )}
+          &lt;h2>Artworks&lt;/h2>
+          {isPending &amp;&amp; &lt;Skeleton type={`spinner`} />}
+          &lt;div className='cards-container'>{!isPending &amp;&amp; artworksCards}&lt;/div>
+        &lt;/div>
+      &lt;/div>
+    &lt;/div>
+  );
+};
+
+export default ArtistInfo;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#activatePageBtn">activatePageBtn</a></li><li><a href="global.html#ArtistInfo">ArtistInfo</a></li><li><a href="global.html#Artwork">Artwork</a></li><li><a href="global.html#Card">Card</a></li><li><a href="global.html#generatePagesLinks">generatePagesLinks</a></li><li><a href="global.html#handleDisplayOptions">handleDisplayOptions</a></li><li><a href="global.html#handleLike">handleLike</a></li><li><a href="global.html#handleNext">handleNext</a></li><li><a href="global.html#handlePagerShifts">handlePagerShifts</a></li><li><a href="global.html#handlePrev">handlePrev</a></li><li><a href="global.html#MainArtist">MainArtist</a></li><li><a href="global.html#MainArtwork">MainArtwork</a></li><li><a href="global.html#MainCard">MainCard</a></li><li><a href="global.html#Pagination">Pagination</a></li><li><a href="global.html#resetPagerBoundaries">resetPagerBoundaries</a></li><li><a href="global.html#scrollToTop">scrollToTop</a></li><li><a href="global.html#Skeleton">Skeleton</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sun Oct 10 2021 00:00:33 GMT+0200 (توقيت شرق أوروبا الرسمي)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

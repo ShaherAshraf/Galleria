@@ -1,0 +1,32 @@
+.Article {
+  @media (min-width: 768px) {
+    width: 90%;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    display: block;
+    padding: 0 0 1rem;
+    border-bottom: 1px solid rgb(70, 70, 70);
+  }
+
+  .page-title {
+    font-size: 3rem;
+    font-family: 'DM Serif Text', serif;
+    text-transform: capitalize;
+    word-break: break-word;
+    @media (min-width: 768px) {
+      font-size: 3.5rem;
+    }
+  }
+
+  .article__text {
+    font-size: 1.3rem;
+    line-height: 1.6rem;
+    @media (min-width: 768px) {
+      margin-left: 0;
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+}

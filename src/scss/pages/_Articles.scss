@@ -1,0 +1,53 @@
+@use '../abstracts/variables' as *;
+
+.Articles {
+  .article {
+    border: 3px solid map-get($Colors, gold);
+    border-radius: 0.5rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    word-break: break-all;
+    @media (min-width: 768px) {
+      margin-bottom: 1.5rem;
+    }
+    @media (min-width: 992px) {
+      width: 80%;
+      margin: 0 auto 1.5rem;
+    }
+  }
+
+  .article__title {
+    font-family: 'DM Serif Text', serif;
+    text-transform: capitalize;
+    letter-spacing: 0.1rem;
+    margin-bottom: 1rem;
+    color: white;
+    transition: 0.5s;
+    &:hover {
+      color: map-get($Colors, gold);
+    }
+    @media (min-width: 768px) {
+      font-size: 2rem;
+    }
+  }
+
+  .article__text {
+    margin-bottom: 1rem;
+    @media (min-width: 768px) {
+      font-size: 1.2rem;
+    }
+  }
+
+  .article__link {
+    color: white;
+    transition: 0.5s;
+    &:hover {
+      color: map-get($Colors, gold);
+      border-bottom: 2px dotted;
+    }
+    @media (min-width: 768px) {
+      font-size: 1.1rem;
+    }
+  }
+}
