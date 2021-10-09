@@ -35,7 +35,7 @@ const SearchBox = () => {
   };
 
   useEffect(() => {
-    if (resultsBoxRef.current != undefined) {
+    if (resultsBoxRef.current !== undefined) {
       resultsBoxRef.current.style.display = 'none';
     }
   }, [searchTerm]);

@@ -67,7 +67,7 @@ const ArtistInfo = () => {
   }, []);
 
   const artworksCards = newArts.map((item) => {
-    if (item && item.image_id != null) {
+    if (item && item.image_id !== null) {
       return <Card key={item.image_id} artwork_id={item.id} title={item.title} artist={item.artist_display} image_id={item.image_id} artist_id={item.artist_id} artist_title={item.artist_title} />;
     }
   });
