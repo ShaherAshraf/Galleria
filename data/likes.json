@@ -100,17 +100,6 @@
       "id": 12
     },
     {
-      "artwork_id": 24687,
-      "artwork_link": "/artwork/24687",
-      "title": "Yellow Hickory Leaves with Daisy",
-      "artist": "Georgia O'Keeffe\nAmerican, 1887–1986",
-      "artist_link": "/artist/36062/georgia-o'keeffe",
-      "artist_id": 36062,
-      "image_url": "https://www.artic.edu/iiif/2/b3688c8c-06f2-2a35-56bb-19de1a05344e/full/843,/0/default.jpg",
-      "isLiked": false,
-      "id": 13
-    },
-    {
       "artwork_id": 100916,
       "artwork_link": "/artwork/100916",
       "title": "Form",
@@ -120,6 +109,17 @@
       "image_url": "https://www.artic.edu/iiif/2/9a0e7cb0-7a8d-7fec-1ea1-89f47981b44f/full/843,/0/default.jpg",
       "isLiked": false,
       "id": 14
+    },
+    {
+      "artwork_id": 137259,
+      "artwork_link": "/MainArtwork/137259",
+      "title": "Mme L... (Laure Borreau)",
+      "artist": "Gustave Courbet (French, 1819-1877)",
+      "artist_link": "/mainArtist/1600/gustave-courbet-(french,-1819-1877)",
+      "artist_id": 1600,
+      "image_url": "https://openaccess-cdn.clevelandart.org/1962.2/1962.2_web.jpg",
+      "isLiked": false,
+      "id": 15
     }
   ]
 }
