@@ -120,6 +120,17 @@
       "image_url": "https://openaccess-cdn.clevelandart.org/1962.2/1962.2_web.jpg",
       "isLiked": false,
       "id": 15
+    },
+    {
+      "artwork_id": 124733,
+      "artwork_link": "/MainArtwork/124733",
+      "title": "Dead Blue Roller",
+      "artist": "Albrecht Dürer (German, 1471-1528)",
+      "artist_link": "/mainArtist/11617/albrecht-dürer-(german,-1471-1528)",
+      "artist_id": 11617,
+      "image_url": "https://openaccess-cdn.clevelandart.org/1946.217/1946.217_web.jpg",
+      "isLiked": false,
+      "id": 16
     }
   ]
 }

@@ -12,6 +12,19 @@ const MainCard = ({ artwork_id, title, artist, artist_id, image_url }) => {
   const titleRef = useRef();
   const artistRef = useRef();
 
+  const handleLikedState = () => {
+    const savedLikes = JSON.parse(localStorage.getItem('likes'));
+    if (!savedLikes || savedLikes.length === 0) {
+      setIsLiked(false);
+    } else {
+      savedLikes.forEach((savedLike) => {
+        if (savedLike.artwork_id === artwork_id) {
+          setIsLiked(true);
+        }
+      });
+    }
+  };
+
   const pressLike = () => {
     setIsLiked(!isLiked);
     const cardInfo = {
@@ -34,6 +47,7 @@ const MainCard = ({ artwork_id, title, artist, artist_id, image_url }) => {
     if (artistRef.current.textContent.length > 50) {
       artistRef.current.textContent = artistRef.current.textContent.slice(0, 50) + ' ...';
     }
+    handleLikedState();
   }, [pressLike]);
 
   if (artwork_id) {

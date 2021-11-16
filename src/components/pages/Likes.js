@@ -2,40 +2,36 @@ import { useEffect, useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import DisplayOptions from '../layouts/DisplayOptions';
 import useResize from '../hooks/useResize';
-import axios from 'axios';
 import Skeleton from '../layouts/Skeleton';
 
-const Likes = ({ handleClick }) => {
+const Likes = ({ handleClick, isLiked }) => {
   const { windowWidth } = useResize();
-  const [likedCards, setLikedCards] = useState(null);
   const [deleted, setDeleted] = useState(false);
   const cardRef = useRef();
   const titleRef = useRef();
   const artistRef = useRef();
 
-  const handleLike = async (id) => {
-    await axios.delete(`http://localhost:8000/likes/${id}`);
-    setDeleted(!deleted);
+  const handleDislike = (artwork_id) => {
+    const savedLikes = JSON.parse(localStorage.getItem('likes'));
+    if (savedLikes && savedLikes.length !== 0) {
+      const likesAfterDeletion = savedLikes.filter((savedLike) => savedLike.artwork_id !== artwork_id);
+      localStorage.setItem('likes', JSON.stringify(likesAfterDeletion));
+      setDeleted(!deleted);
+    }
   };
 
-  useEffect(() => {
-    const source = axios.CancelToken.source();
-    const fetchLikes = async () => {
-      await axios
-        .get(`http://localhost:8000/likes`, { cancelToken: source.token })
-        .then((res) => {
-          setLikedCards(res.data);
-        })
-        .catch((err) => {
-          if (axios.isCancel(err)) {
-            console.log('LikesPage => canceled request');
-          }
-          return err.message;
-        });
-    };
-    fetchLikes();
-    return () => source.cancel();
-  }, [deleted, handleLike]);
+  var likedCards = [];
+  const savedLikes = JSON.parse(localStorage.getItem('likes'));
+  const fetchLikes = () => {
+    if (!savedLikes || savedLikes.length === 0) {
+      return null;
+    } else {
+      likedCards = [...savedLikes];
+    }
+  };
+  fetchLikes();
+
+  useEffect(() => {}, [deleted]);
 
   return (
     <div className='Likes'>
@@ -45,10 +41,11 @@ const Likes = ({ handleClick }) => {
           {window.innerWidth >= 1200 || windowWidth >= 1200 ? <DisplayOptions handleClick={handleClick} /> : null}
         </header>
         {!likedCards && <Skeleton type={'spinner'} />}
+        {(!savedLikes || savedLikes.length === 0) && <h1>No Likes yet!</h1>}
         <div className='cards-container'>
           {likedCards &&
             likedCards.map((card) => (
-              <div key={card.id} ref={cardRef} className='LikedCard'>
+              <div key={card.artwork_id} ref={cardRef} className='LikedCard'>
                 <img src={card.image_url} className='card__img' />
                 <div className='card__content'>
                   <div className='card__info'>
@@ -62,7 +59,7 @@ const Likes = ({ handleClick }) => {
                         {card.artist}
                       </p>
                     </Link>
-                    <span className='card__like material-icons' onClick={() => handleLike(card.id)}>
+                    <span className='card__like material-icons' onClick={() => handleDislike(card.artwork_id)}>
                       favorite
                     </span>
                   </div>

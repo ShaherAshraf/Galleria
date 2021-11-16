@@ -26,6 +26,7 @@
 
 - [React.JS](https://reactjs.org/)
 - Sass
+- Framer Motion
 - Flexbox
 - CSS Grid
 - Mobile-first workflow
@@ -37,4 +38,5 @@
 
 ## Author
 
-- Email - [Shaher Ashraf](shaherashraf77@gmail.com)
+- Portfolio - [Shaher Ashraf](https://thegoat7.netlify.app/)
+- LinkedIn - [Shaher Ashraf](https://www.linkedin.com/in/shaher88223/)

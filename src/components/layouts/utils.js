@@ -1,32 +1,24 @@
-import axios from 'axios';
-
 /**
  * @function handleLike
  * @description Likes/dislikes an artwork.
  * @param {object} cardInfo - Information about every liked artwork.
  */
-export const handleLike = async (cardInfo) => {
-  await axios
-    .get(`http://localhost:8000/likes`)
-    .then((res) => {
-      return res.data;
-    })
-    .then((oldData) => {
-      if (!cardInfo.isLiked) {
-        axios.post(`http://localhost:8000/likes`, cardInfo);
-        oldData.forEach((item) => {
-          if (item.artwork_id === cardInfo.artwork_id) {
-            axios.delete(`http://localhost:8000/likes/${item.id}`);
-          }
-        });
-      } else {
-        oldData.forEach((item) => {
-          if (item.artwork_id === cardInfo.artwork_id) {
-            axios.delete(`http://localhost:8000/likes/${item.id}`);
-          }
-        });
-      }
-    });
+var likes = [];
+export const handleLike = (cardInfo) => {
+  const savedLikes = JSON.parse(localStorage.getItem('likes'));
+  if (!savedLikes || savedLikes.length === 0) {
+    likes.push(cardInfo);
+    localStorage.setItem('likes', JSON.stringify(likes));
+  } else {
+    const uniqueLikes = savedLikes.filter((savedLike) => savedLike.artwork_id !== cardInfo.artwork_id);
+    if (cardInfo.isLiked === true) {
+      likes = [...uniqueLikes];
+      localStorage.setItem('likes', JSON.stringify(likes));
+    } else {
+      likes = [...uniqueLikes, cardInfo];
+      localStorage.setItem('likes', JSON.stringify(likes));
+    }
+  }
 };
 
 /**
