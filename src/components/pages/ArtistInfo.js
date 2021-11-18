@@ -21,8 +21,8 @@ const ArtistInfo = () => {
 
   useEffect(() => {
     const source = axios.CancelToken.source();
-    const fetchArtist = async () => {
-      await axios
+    const fetchArtist = () => {
+      axios
         .get(`https://api.artic.edu/api/v1/artists/${id}`, { cancelToken: source.token })
         .then((res) => {
           setArtistInfo(res.data.data);

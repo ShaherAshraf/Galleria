@@ -11,7 +11,7 @@ const Artists = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const source = axios.CancelToken.source();
-  const fetchArtists = async () => {
+  const fetchArtists = () => {
     let url = ``;
     if (window.location.search) {
       const pageIndicator = parseInt(window.location.search.slice(6));
@@ -19,7 +19,7 @@ const Artists = () => {
     } else {
       url = `https://api.artic.edu/api/v1/artists?page=1&limit=100`;
     }
-    await axios
+    axios
       .get(url, { cancelToken: source.token })
       .then((res) => {
         setCards(res.data);
